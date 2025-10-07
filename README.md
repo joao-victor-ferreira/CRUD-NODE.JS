@@ -41,21 +41,21 @@ testes/ # Testes unitários e integração
 
 ## Scripts disponíveis
 
-- `npm run dev` → Inicia o servidor com Nodemon  
-- `npm run test` → Executa testes com Jest  
-- `npm run lint` → Verifica problemas de lint  
-- `npm run lint:fix` → Corrige problemas de lint  
-- `npm run format` → Formata o código com Prettier  
-- `npm run check` → Lint + Prettier  
+- `npm run dev` → Inicia o servidor com Nodemon
+- `npm run test` → Executa testes com Jest
+- `npm run lint` → Verifica problemas de lint
+- `npm run lint:fix` → Corrige problemas de lint
+- `npm run format` → Formata o código com Prettier
+- `npm run check` → Lint + Prettier
 - `npm run commit` → Commits padronizados via Commitizen
 
 ---
 
 ## Logs
 
-- Logs estruturados com Winston  
-- Rotacionados diariamente (`logs/YYYY-MM-DD-app.log`)  
-- Logs de erros separados (`logs/error.log`)  
+- Logs estruturados com Winston
+- Rotacionados diariamente (`logs/YYYY-MM-DD-app.log`)
+- Logs de erros separados (`logs/error.log`)
 - Também aparecem no console durante o desenvolvimento
 
 ---
@@ -69,3 +69,4 @@ npm install
 
 
 mpm run dev
+```

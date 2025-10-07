@@ -10,10 +10,7 @@ const router = express.Router();
 router.post("/", validate(userSchema), userController.createUser);
 router.get("/", userController.getUsers);
 router.get("/:id", userController.getUserById);
-
-// aqui não usamos validate(userSchema), pq update pode ser parcial
 router.put("/:id", userController.updateUser);
-
 router.delete("/:id", userController.deleteUser);
 
 export default router;

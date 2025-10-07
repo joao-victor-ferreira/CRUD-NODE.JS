@@ -1,4 +1,3 @@
-// src/middlewares/errorHandler.js
 export default function errorHandler(err, req, res, next) {
   console.error("🔥 Erro capturado:", err);
 
@@ -13,12 +12,10 @@ export default function errorHandler(err, req, res, next) {
     timestamp: new Date().toISOString(),
   };
 
-  // 📌 Erros de validação (Joi/Mongoose)
   if (err.name === "ValidationError") {
     status = 400;
     errorResponse.status = 400;
 
-    // Se tiver detalhes de validação (ex: Joi), junta as mensagens
     if (err.details) {
       errorResponse.message = err.details.map((d) => d.message).join(", ");
     } else {

@@ -1,14 +1,13 @@
-// src/controllers/userController.js
 import userService from "../services/userService.js";
 import { HTTP_STATUS, MESSAGES } from "../constants/index.js";
-import logger from "../utils/logger.js"; // importando o logger
+import logger from "../utils/logger.js";
 
 // Criar usuário
 export const createUser = async (req, res, next) => {
   try {
     const user = await userService.createUser(req.body);
     logger.info(`Usuário criado: ${user.email} (ID: ${user._id})`);
-    return res.status(HTTP_STATUS.CREATED).json(user); // já vem como DTO
+    return res.status(HTTP_STATUS.CREATED).json(user);
   } catch (err) {
     logger.error(`Erro ao criar usuário: ${err.message}`, { stack: err.stack });
     return next(err);
@@ -22,7 +21,9 @@ export const getUsers = async (req, res, next) => {
     logger.info(`Listagem de usuários retornou ${users.length} registros`);
     return res.status(HTTP_STATUS.OK).json(users);
   } catch (err) {
-    logger.error(`Erro ao listar usuários: ${err.message}`, { stack: err.stack });
+    logger.error(`Erro ao listar usuários: ${err.message}`, {
+      stack: err.stack,
+    });
     return next(err);
   }
 };
@@ -40,7 +41,9 @@ export const getUserById = async (req, res, next) => {
     logger.info(`Usuário encontrado: ${user.email} (ID: ${user._id})`);
     return res.status(HTTP_STATUS.OK).json(user);
   } catch (err) {
-    logger.error(`Erro ao buscar usuário: ${err.message}`, { stack: err.stack });
+    logger.error(`Erro ao buscar usuário: ${err.message}`, {
+      stack: err.stack,
+    });
     return next(err);
   }
 };
@@ -50,7 +53,9 @@ export const updateUser = async (req, res, next) => {
   try {
     const user = await userService.updateUser(req.params.id, req.body);
     if (!user) {
-      logger.warn(`Tentativa de atualizar usuário inexistente: ID ${req.params.id}`);
+      logger.warn(
+        `Tentativa de atualizar usuário inexistente: ID ${req.params.id}`
+      );
       return res
         .status(HTTP_STATUS.NOT_FOUND)
         .json({ message: MESSAGES.USER.NOT_FOUND });
@@ -58,7 +63,9 @@ export const updateUser = async (req, res, next) => {
     logger.info(`Usuário atualizado: ${user.email} (ID: ${user._id})`);
     return res.status(HTTP_STATUS.OK).json(user);
   } catch (err) {
-    logger.error(`Erro ao atualizar usuário: ${err.message}`, { stack: err.stack });
+    logger.error(`Erro ao atualizar usuário: ${err.message}`, {
+      stack: err.stack,
+    });
     return next(err);
   }
 };
@@ -68,7 +75,9 @@ export const deleteUser = async (req, res, next) => {
   try {
     const result = await userService.deleteUser(req.params.id);
     if (!result) {
-      logger.warn(`Tentativa de deletar usuário inexistente: ID ${req.params.id}`);
+      logger.warn(
+        `Tentativa de deletar usuário inexistente: ID ${req.params.id}`
+      );
       return res
         .status(HTTP_STATUS.NOT_FOUND)
         .json({ message: MESSAGES.USER.NOT_FOUND });
@@ -78,7 +87,9 @@ export const deleteUser = async (req, res, next) => {
       .status(HTTP_STATUS.OK)
       .json({ success: true, message: MESSAGES.USER.DELETED });
   } catch (err) {
-    logger.error(`Erro ao deletar usuário: ${err.message}`, { stack: err.stack });
+    logger.error(`Erro ao deletar usuário: ${err.message}`, {
+      stack: err.stack,
+    });
     return next(err);
   }
 };

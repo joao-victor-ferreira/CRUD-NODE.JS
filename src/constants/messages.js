@@ -1,4 +1,3 @@
-// src/constants/messages.js
 export const MESSAGES = {
   USER: {
     NOT_FOUND: "Usuário não encontrado",

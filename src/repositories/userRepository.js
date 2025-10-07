@@ -1,4 +1,3 @@
-// src/repositories/userRepository.js
 import User from "../models/User.js";
 
 class UserRepository {

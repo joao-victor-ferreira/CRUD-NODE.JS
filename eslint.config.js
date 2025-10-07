@@ -1,4 +1,3 @@
-// eslint.config.js
 import js from "@eslint/js";
 import prettier from "eslint-plugin-prettier";
 import globals from "globals";
@@ -11,7 +10,7 @@ export default [
       sourceType: "module",
       globals: {
         ...globals.node,
-        ...globals.jest, // permite variáveis do Jest nos testes
+        ...globals.jest,
       },
     },
     plugins: {

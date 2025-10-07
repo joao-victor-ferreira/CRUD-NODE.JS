@@ -12,7 +12,7 @@ const transport = new transports.DailyRotateFile({
   datePattern: "YYYY-MM-DD",
   zippedArchive: true,
   maxSize: "20m",
-  maxFiles: "14d", // mantém 14 dias de logs
+  maxFiles: "14d",
   level: "info",
 });
 

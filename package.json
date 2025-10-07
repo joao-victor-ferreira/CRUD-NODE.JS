@@ -12,7 +12,8 @@
     "format": "prettier --write .",
     "prepare": "husky install",
     "check": "npm run lint && npm run format",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
